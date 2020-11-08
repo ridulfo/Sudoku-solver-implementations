@@ -25,6 +25,6 @@ The java implementation was taken from an exercise I had in school a year ago.
 `g++ ccudoku.cc -o ccudoku -Ofast`
 
 #### To run the C++ implementation, compile it using:<br>
-`javac Board.java`
+`javac judoku.java`
 then run with
-`java Board`
+`java judoku`
