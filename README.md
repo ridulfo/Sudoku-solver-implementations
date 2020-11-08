@@ -4,9 +4,9 @@ Python vs Numba vs c++: Different implementations of a sudoku solver!
 ## Performance
 |         | Time (microseconds) |
 |---------|---------------------|
-| java    | 22 (wow)            |
 | c++     | 31                  |
 | Numba   | 170                 |
+| Java    | 225                 |
 | CPython | 4000                |
 | pypy    | 18000 (why?)        |
 
