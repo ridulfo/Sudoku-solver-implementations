@@ -1,13 +1,14 @@
 import java.util.PriorityQueue;
+import java.util.Random;
 
-public class Board{
+class judoku{
 	private int[][] values;
 	final int size = 9; // The size of one side of the board
 
 	/**
 	 * A Sudoku board (9x9)
 	 */
-	public Board() {
+	public judoku() {
 		values = new int[size][size];
 	}
 
@@ -178,17 +179,18 @@ public class Board{
 
 	public static void main(String[] args)  {
 
-		Board board = new Board();
-		board.print();
 		PriorityQueue<Long> times = new PriorityQueue<>();
 		for(int i = 0;i<10;i++){
+		    judoku board = new judoku();
+			Random r = new Random();
+			board.setValue(r.nextInt(9), r.nextInt(9), r.nextInt(10));
+		    board.print();
 			long t0 = System.nanoTime();
 			board.solve();
 			long t1 = System.nanoTime();
-			board.solve();
 			times.add((t1-t0)/1000);
+		    board.print();
 		}
-		board.print();
 		System.out.println(times.poll());
     }
 }
