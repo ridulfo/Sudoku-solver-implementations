@@ -1,6 +1,5 @@
 #include <iostream>
 #include <chrono>
-#include <unistd.h>
 
 void printBoard(int board[][9]){
     for(int row = 0;row<9;row++){
@@ -35,8 +34,6 @@ void solve(int board[][9]){
     int row = 0;
     int column = 0;
     while(!solved){
-       // printBoard(board);
-       // usleep(300*1000);
         bool move = false;
         for(int n = board[row][column]+1;n<10;n++){
             if(isAllowed(board, row, column, n)){
