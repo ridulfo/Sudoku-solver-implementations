@@ -20,11 +20,10 @@ The java implementation was taken from an exercise I had in school a year ago.
 #### To run the python implementation, install the requirements using:<br>
 `pip install -r requirements.txt`
 
-
 #### To run the C++ implementation, compile it using:<br>
 `g++ ccudoku.cc -o ccudoku -Ofast`
 
-#### To run the C++ implementation, compile it using:<br>
+#### To run the Java implementation, compile it using:<br>
 `javac judoku.java`
 then run with
 `java judoku`
