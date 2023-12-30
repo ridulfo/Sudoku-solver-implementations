@@ -1,10 +1,10 @@
 local function is_allowed(board, row, col, val)
 	for i = 1, 9 do
-		if board[row][i] == val then
+		if board[(row - 1) * 9 + i] == val then
 			return false
 		end
 
-		if board[i][col] == val then
+		if board[(i - 1) * 9 + col] == val then
 			return false
 		end
 	end
@@ -14,7 +14,7 @@ local function is_allowed(board, row, col, val)
 
 	for i = row_start, row_start + 2 do
 		for j = col_start, col_start + 2 do
-			if board[i][j] == val then
+			if board[(i - 1) * 9 + j] == val then
 				return false
 			end
 		end
@@ -30,9 +30,9 @@ local function solve(board)
 
 	while not solved do
 		local next = false
-		for n = board[row][col] + 1, 9 do
+		for n = board[(row - 1) * 9 + col] + 1, 9 do
 			if is_allowed(board, row, col, n) then
-				board[row][col] = n
+				board[(row - 1) * 9 + col] = n
 				next = true
 				break
 			end
@@ -48,7 +48,7 @@ local function solve(board)
 				col = 1
 			end
 		else
-			board[row][col] = 0
+			board[(row - 1) * 9 + col] = 0
 			col = col - 1
 			if col < 1 then
 				row = row - 1
@@ -62,7 +62,7 @@ end
 function inspect(board)
 	for i = 1, 9 do
 		for j = 1, 9 do
-			io.write(board[i][j] .. " ")
+			io.write(board[(row - 1) * 9 + col] .. " ")
 			if j % 3 == 0 then
 				io.write("  ")
 			end
@@ -75,7 +75,15 @@ function inspect(board)
 end
 
 local function create_grid()
-	local grid = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }
+	local grid = { 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0 }
 	return grid
 end
 

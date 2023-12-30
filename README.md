@@ -8,6 +8,7 @@ Python vs Numba vs c++: Different implementations of a sudoku solver!
 | c++     | 31                  |
 | Numba   | 170                 |
 | Java    | 225                 |
+| LuaJit  | 283                 |
 | CPython | 4000                |
 | pypy    | 18000 (why?)        |
 
@@ -28,3 +29,7 @@ The java implementation was taken from an exercise I had in school a year ago.
 `javac judoku.java`
 then run with
 `java judoku`
+
+#### To run the Lua implementation:
+`luajit ludoku.lua`
+
